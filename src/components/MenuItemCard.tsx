@@ -19,43 +19,47 @@ const MenuItemCard = ({ item }: MenuItemCardProps) => {
 
   return (
     <div
-      className={`flex items-center gap-3 bg-card rounded-lg p-3 shadow-sm transition-all ${
-        isOutOfStock ? "opacity-50" : "hover:shadow-md"
+      className={`glass-subtle rounded-xl p-3 flex items-center gap-3 transition-all hover:bg-white/[0.08] ${
+        isOutOfStock ? "opacity-40" : ""
       }`}
     >
       {/* Food image placeholder */}
-      <div className="w-16 h-16 rounded-lg bg-muted flex items-center justify-center shrink-0 overflow-hidden">
+      <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
         <span className="text-2xl">🍽️</span>
       </div>
 
       {/* Info */}
       <div className="flex-1 min-w-0">
-        <h4 className="font-semibold text-sm text-card-foreground truncate">{item.food_item}</h4>
-        {isOutOfStock && (
-          <span className="text-xs text-destructive font-medium flex items-center gap-1">
+        <h4 className="font-semibold text-sm truncate">{item.food_item}</h4>
+        {isOutOfStock ? (
+          <span className="text-xs text-red-400 font-medium flex items-center gap-1 mt-0.5">
             <Ban className="w-3 h-3" /> Out of Stock
+          </span>
+        ) : (
+          <span className="text-xs text-[hsl(var(--muted-foreground))]">
+            {item.category || "Food"}
           </span>
         )}
       </div>
 
       {/* Price & Actions */}
-      <div className="flex flex-col items-end gap-1 shrink-0">
-        <span className="font-bold text-primary text-sm">₹{item.price.toFixed(2)}</span>
+      <div className="flex flex-col items-end gap-1.5 shrink-0">
+        <span className="font-bold text-[hsl(var(--primary))] text-sm">₹{item.price}</span>
 
         {isOutOfStock ? (
-          <div className="w-8 h-8" />
+          <div className="h-7" />
         ) : cartItem ? (
           <div className="flex items-center gap-1">
             <button
               onClick={() => updateQty(item.id, -1)}
-              className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center"
+              className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
             >
               <Minus className="w-3.5 h-3.5" />
             </button>
             <span className="w-6 text-center text-sm font-bold">{cartItem.qty}</span>
             <button
               onClick={() => updateQty(item.id, 1)}
-              className="w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center"
+              className="w-7 h-7 rounded-full bg-[hsl(var(--primary))] text-white flex items-center justify-center hover:brightness-110 transition"
             >
               <Plus className="w-3.5 h-3.5" />
             </button>
@@ -63,7 +67,7 @@ const MenuItemCard = ({ item }: MenuItemCardProps) => {
         ) : (
           <button
             onClick={handleAdd}
-            className="px-3 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold"
+            className="px-3 py-1 rounded-full bg-[hsl(var(--primary))] text-white text-xs font-semibold hover:brightness-110 transition active:scale-95"
           >
             ADD
           </button>
