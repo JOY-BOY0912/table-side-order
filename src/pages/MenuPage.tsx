@@ -5,7 +5,8 @@ import { useAppState } from "@/context/AppContext";
 import { API } from "@/config/api";
 import MenuItemCard from "@/components/MenuItemCard";
 import CategoryNav from "@/components/CategoryNav";
-import { Loader2, Search, ShoppingCart, UtensilsCrossed } from "lucide-react";
+import { Loader2, Search, ShoppingCart } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const MenuPage = () => {
   const [menu, setMenu] = useState<MenuItem[]>([]);
