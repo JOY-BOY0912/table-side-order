@@ -41,12 +41,9 @@ const MenuPage = () => {
     <div className="min-h-screen flex items-start justify-center px-4 py-6">
       <div className="glass rounded-[20px] w-full max-w-[420px] flex flex-col overflow-hidden">
         {/* Header */}
-        <div className="px-5 pt-5 pb-3">
-          <div className="flex items-center gap-2 mb-4">
-            <UtensilsCrossed className="w-6 h-6 text-[hsl(var(--primary))]" />
-            <h1 className="text-xl font-bold text-[hsl(var(--foreground))]">Restaurant Menu</h1>
-          </div>
+        <Navbar />
 
+        <div className="px-5 pb-3">
           {/* Search */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[hsl(var(--muted-foreground))]" />

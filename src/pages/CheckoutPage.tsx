@@ -37,10 +37,23 @@ const CheckoutPage = () => {
       const data = await res.json();
       if (data.success) {
         toast.success("Order placed successfully! 🎉");
-        addOrder({
+        // Save to localStorage
+        const orderRecord = {
           time: new Date().toLocaleTimeString(),
           table_no: customer.table_no,
+          customer_name: customer.customer_name,
           items: cart.map(c => ({ food: c.food_item, qty: c.qty })),
+          total: cartTotal,
+        };
+        try {
+          const existing = JSON.parse(localStorage.getItem("order_history") || "[]");
+          existing.unshift(orderRecord);
+          localStorage.setItem("order_history", JSON.stringify(existing));
+        } catch {}
+        addOrder({
+          time: orderRecord.time,
+          table_no: customer.table_no,
+          items: orderRecord.items,
         });
         clearCart();
         navigate("/");
