@@ -15,10 +15,10 @@ const CategoryNav = ({ active, onSelect }: CategoryNavProps) => {
         <button
           key={cat}
           onClick={() => onSelect(cat)}
-          className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${
+          className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-medium font-body transition-all shrink-0 btn-transition ${
             active === cat
-              ? "bg-[hsl(var(--primary))] text-white shadow-lg shadow-black/20"
-              : "bg-white/8 text-[hsl(var(--muted-foreground))] hover:bg-white/15 border border-white/10"
+              ? "bg-sage-deep text-white shadow-lg shadow-sage-deep/20"
+              : "bg-sage-light/40 text-sage-forest hover:bg-sage-light/70 border border-sage-soft/20"
           }`}
         >
           {cat}

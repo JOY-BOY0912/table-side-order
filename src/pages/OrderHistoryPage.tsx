@@ -25,52 +25,52 @@ const OrderHistoryPage = () => {
 
   return (
     <div className="min-h-screen flex items-start justify-center px-4 py-6">
-      <div className="glass rounded-[20px] w-full max-w-[420px] flex flex-col overflow-hidden">
+      <div className="glass rounded-[20px] w-full max-w-[420px] flex flex-col overflow-hidden animate-fade-in-up">
         {/* Header */}
-        <div className="flex items-center gap-3 px-5 pt-5 pb-4 border-b border-white/10">
+        <div className="flex items-center gap-3 px-5 pt-5 pb-4 border-b border-sage-soft/20">
           <button
             onClick={() => navigate("/")}
-            className="w-8 h-8 rounded-full glass-subtle flex items-center justify-center hover:bg-white/10 transition"
+            className="w-8 h-8 rounded-full glass-subtle flex items-center justify-center hover:bg-sage-light/50 transition btn-transition"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-sage-deep" />
           </button>
-          <h1 className="text-xl font-bold">Order History</h1>
+          <h1 className="text-xl font-bold font-display text-sage-deep">Order History</h1>
         </div>
 
         {/* Orders */}
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3" style={{ maxHeight: "75vh" }}>
           {orders.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-16 text-[hsl(var(--muted-foreground))]">
+            <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
               <ShoppingBag className="w-12 h-12 mb-3 opacity-40" />
-              <p className="text-sm">No orders placed yet</p>
+              <p className="text-sm font-body">No orders placed yet</p>
             </div>
           ) : (
             orders.map((order, idx) => (
-              <div key={idx} className="glass-subtle rounded-xl p-4 space-y-2.5">
+              <div key={idx} className="glass-subtle rounded-xl p-4 space-y-2.5 card-hover animate-fade-in-up">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-[hsl(var(--primary))]">Order #{orders.length - idx}</span>
-                  <div className="flex items-center gap-1 text-xs text-[hsl(var(--muted-foreground))]">
+                  <span className="text-sm font-bold text-sage-deep font-display">Order #{orders.length - idx}</span>
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <Clock className="w-3 h-3" />
-                    <span>{order.time}</span>
+                    <span className="font-body">{order.time}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs text-[hsl(var(--muted-foreground))]">
+                <div className="flex items-center gap-4 text-xs text-muted-foreground font-body">
                   <span>👤 {order.customer_name}</span>
                   <span>🪑 Table {order.table_no}</span>
                 </div>
 
-                <div className="border-t border-white/10 pt-2 space-y-1">
+                <div className="border-t border-sage-soft/20 pt-2 space-y-1">
                   {order.items.map((item, i) => (
-                    <div key={i} className="flex justify-between text-sm">
-                      <span>{item.food}</span>
-                      <span className="text-[hsl(var(--muted-foreground))]">x{item.qty}</span>
+                    <div key={i} className="flex justify-between text-sm font-body">
+                      <span className="text-sage-deep">{item.food}</span>
+                      <span className="text-muted-foreground">x{item.qty}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex justify-end border-t border-white/10 pt-2">
-                  <span className="text-sm font-bold text-[hsl(var(--primary))]">Total ₹{order.total}</span>
+                <div className="flex justify-end border-t border-sage-soft/20 pt-2">
+                  <span className="text-sm font-bold text-sage-deep font-display">Total ₹{order.total}</span>
                 </div>
               </div>
             ))
