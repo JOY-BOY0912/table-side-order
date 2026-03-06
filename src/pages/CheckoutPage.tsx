@@ -124,7 +124,7 @@ const CheckoutPage = () => {
                 <User className="w-4 h-4 text-sage-forest" />
                 <input
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Name"
                   value={customer.customer_name}
                   onChange={e => handleChange("customer_name", e.target.value)}
                   className="bg-transparent outline-none text-sm flex-1 placeholder:text-muted-foreground text-sage-deep font-body"
@@ -134,7 +134,7 @@ const CheckoutPage = () => {
                 <Phone className="w-4 h-4 text-sage-forest" />
                 <input
                   type="tel"
-                  placeholder="Phone Number"
+                  placeholder="Phone No."
                   value={customer.phone}
                   onChange={e => handleChange("phone", e.target.value)}
                   className="bg-transparent outline-none text-sm flex-1 placeholder:text-muted-foreground text-sage-deep font-body"
@@ -143,11 +143,11 @@ const CheckoutPage = () => {
               <div className="glass-input flex items-center gap-2 rounded-xl px-3 py-2.5">
                 <Hash className="w-4 h-4 text-sage-forest" />
                 <input
-                  type="number"
-                  min={1}
-                  placeholder="Table Number"
-                  value={customer.table_no}
-                  onChange={e => handleChange("table_no", parseInt(e.target.value) || 1)}
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="Table No."
+                  value={customer.table_no || ""}
+                  onChange={e => handleChange("table_no", e.target.value === "" ? "" : parseInt(e.target.value) || "")}
                   className="bg-transparent outline-none text-sm flex-1 placeholder:text-muted-foreground text-sage-deep font-body"
                 />
               </div>
