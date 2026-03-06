@@ -134,7 +134,7 @@ const CheckoutPage = () => {
                 <Phone className="w-4 h-4 text-sage-forest" />
                 <input
                   type="tel"
-                  placeholder="Phone Number"
+                  placeholder="Phone No."
                   value={customer.phone}
                   onChange={e => handleChange("phone", e.target.value)}
                   className="bg-transparent outline-none text-sm flex-1 placeholder:text-muted-foreground text-sage-deep font-body"
