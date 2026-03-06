@@ -2,42 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Tenor+Sans&family=Questrial&display=swap');
 
 @layer base {
   :root {
-    --background: 10 5% 27%;
-    --foreground: 0 0% 95%;
+    --background: 110 25% 88%;
+    --foreground: 150 35% 12%;
 
-    --card: 0 0% 100% / 0.08;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 35% 12%;
 
-    --popover: 0 0% 100% / 0.12;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 35% 12%;
 
-    --primary: 10 55% 58%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 150 35% 12%;
+    --primary-foreground: 80 30% 92%;
 
-    --secondary: 0 0% 100% / 0.1;
-    --secondary-foreground: 0 0% 92%;
+    --secondary: 135 20% 40%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 100% / 0.06;
-    --muted-foreground: 0 0% 70%;
+    --muted: 110 15% 82%;
+    --muted-foreground: 150 15% 40%;
 
-    --accent: 10 55% 58%;
+    --accent: 135 20% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 100% / 0.15;
-    --input: 0 0% 100% / 0.1;
-    --ring: 10 55% 58%;
+    --border: 0 0% 0% / 0.08;
+    --input: 0 0% 0% / 0.08;
+    --ring: 150 35% 12%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --gradient-from: #474342;
-    --gradient-to: #CC6E60;
+    --gradient-from: #AEC3B0;
+    --gradient-to: #E3EED4;
+
+    --deep-sage: #0F2A1D;
+    --forest-sage: #375534;
+    --soft-sage: #6B9071;
+    --light-sage: #AEC3B0;
+    --cream: #E3EED4;
   }
 }
 
@@ -47,33 +53,41 @@
   }
 
   body {
-    background: linear-gradient(180deg, var(--gradient-from), var(--gradient-to));
+    background: linear-gradient(to bottom, var(--gradient-from) 0%, var(--gradient-to) 40%);
     min-height: 100vh;
-    font-family: 'DM Sans', 'Inter', sans-serif;
+    font-family: 'Questrial', sans-serif;
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  h4, h5, h6 {
+    font-family: 'Tenor Sans', sans-serif;
   }
 }
 
 /* Glass card utility */
 .glass {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
 }
 
 .glass-subtle {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .glass-input {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -86,7 +100,7 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 2px;
 }
 
@@ -97,4 +111,54 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Card hover animation */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+/* Staggered list items */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* Spin animation for refresh */
+@keyframes spin-smooth {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-smooth {
+  animation: spin-smooth 1s linear infinite;
+}
+
+/* Button transition */
+.btn-transition {
+  transition: all 0.25s ease;
+}
+.btn-transition:hover {
+  box-shadow: 0 4px 16px rgba(15, 42, 29, 0.2);
 }

@@ -14,7 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
+        display: ["'Cormorant Garamond'", "serif"],
+        heading: ["'Tenor Sans'", "sans-serif"],
+        body: ["'Questrial'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,11 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-bg))",
-          foreground: "hsl(var(--sidebar-fg))",
-          active: "hsl(var(--sidebar-active))",
-          "active-foreground": "hsl(var(--sidebar-active-fg))",
+        sage: {
+          deep: "#0F2A1D",
+          forest: "#375534",
+          soft: "#6B9071",
+          light: "#AEC3B0",
+          cream: "#E3EED4",
         },
       },
       borderRadius: {
