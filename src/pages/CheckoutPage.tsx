@@ -124,7 +124,7 @@ const CheckoutPage = () => {
                 <User className="w-4 h-4 text-sage-forest" />
                 <input
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Name"
                   value={customer.customer_name}
                   onChange={e => handleChange("customer_name", e.target.value)}
                   className="bg-transparent outline-none text-sm flex-1 placeholder:text-muted-foreground text-sage-deep font-body"
