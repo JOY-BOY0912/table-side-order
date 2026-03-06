@@ -143,11 +143,11 @@ const CheckoutPage = () => {
               <div className="glass-input flex items-center gap-2 rounded-xl px-3 py-2.5">
                 <Hash className="w-4 h-4 text-sage-forest" />
                 <input
-                  type="number"
-                  min={1}
-                  placeholder="Table Number"
-                  value={customer.table_no}
-                  onChange={e => handleChange("table_no", parseInt(e.target.value) || 1)}
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="Table No."
+                  value={customer.table_no || ""}
+                  onChange={e => handleChange("table_no", e.target.value === "" ? "" : parseInt(e.target.value) || "")}
                   className="bg-transparent outline-none text-sm flex-1 placeholder:text-muted-foreground text-sage-deep font-body"
                 />
               </div>

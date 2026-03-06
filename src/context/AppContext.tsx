@@ -51,7 +51,7 @@ export const useAppState = () => {
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [customer, setCustomer] = useState<CustomerInfo>({ customer_name: "", phone: "", table_no: 1 });
+  const [customer, setCustomer] = useState<CustomerInfo>({ customer_name: "", phone: "", table_no: "" as any });
   const [orders, setOrders] = useState<OrderRecord[]>([]);
 
   const addToCart = useCallback((item: MenuItem) => {
